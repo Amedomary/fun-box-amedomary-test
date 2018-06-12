@@ -1,0 +1,18 @@
+//- ====================
+//- RBZ: button block link
+//- 16.01.2018: Amedomary
+//- --------------------
+//- Блочная ссылка
+//- ====================
+
+//- if <a>        link = true
+//- if <button>   link = false
+
+mixin button(content,  link)
+    if link == true
+        +b('a').button( href="javascript:void(0);" title=`${content}` )&attributes( attributes ) #{content}
+            block
+
+    else
+        +b('button').button&attributes( attributes ) #{content}
+            block

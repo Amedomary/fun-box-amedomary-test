@@ -1,0 +1,18 @@
+//- ====================
+//- RBZ: link inline
+//- 16.01.2018: Amedomary
+//- --------------------
+//- Строчная ссылка
+//- ====================
+
+//- if <a>        link = true
+//- if <button>   link = false
+
+mixin link(content, link)
+    if link == true
+        +b('a').link( href="javascript:void(0);" title=`${content}` )&attributes( attributes ) #{content}
+            block
+
+    else
+        +b('button').link&attributes( attributes ) #{content}
+            block
